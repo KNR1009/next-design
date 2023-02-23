@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 // components
-import { Post } from "../../features/post/components/Post";
+import { Post } from "../../src/features/post/components/Post";
 // hooks
-import { useFetchPosts } from "../../features/post/hooks";
+import { useFetchPosts } from "../../src/features/post/hooks";
 
 /* 責務はAPI通信とページの表示 */
 const PostPage: NextPage = () => {
