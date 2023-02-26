@@ -1,14 +1,11 @@
 import axios from "axios";
 const baseURL = process.env.NEXT_PUBLIC_APP_API_ENDPOINT;
 const headers = {
-  Authorization: `Bearer 12345678910`,
   "Content-Type": "application/json",
 };
 
-// ベースクライアント
 export const ApiClient = axios.create({ baseURL, headers });
 
-// レスポンスのインターセプター
 ApiClient.interceptors.response.use(
   (response) => {
     return response;
@@ -29,3 +26,10 @@ ApiClient.interceptors.response.use(
     // return { errors: errorMessage, message: "error message" };
   }
 );
+
+ApiClient.interceptors.request.use(async (request: any) => {
+  if (request && request.url?.includes("posts")) {
+    request.headers["access-token"] = "sample-token123";
+  }
+  return request;
+});
