@@ -30,6 +30,7 @@ ApiClient.interceptors.response.use(
 ApiClient.interceptors.request.use(async (request: any) => {
   if (request && request.url?.includes("posts")) {
     request.headers["access-token"] = "sample-token123";
+    request.headers.Authorization = `Token AuthorizationToken`;
   }
   return request;
 });
