@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import { PostType } from "../../../models/Post";
 import { createPost, deletePost } from "../api/getPost";
@@ -62,6 +63,7 @@ export const Post: React.FC<Props> = (props) => {
           value={body}
         />
         <button onClick={onClick}>送信</button>
+        <Link href={"/"}>戻る</Link>
       </div>
     </>
   );
