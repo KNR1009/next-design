@@ -1,6 +1,7 @@
-// ユーザーIDを不要にする(サンプル)
-export type Post = {
+export type PostType = {
   id: number;
   title: string;
   body: string;
+  created_at: string;
+  updated_at: string;
 };

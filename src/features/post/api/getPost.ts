@@ -1,8 +1,8 @@
 import axios from "axios";
 import { ApiClient } from "../../../lib/api-client";
-import { PostType } from "../types";
+import { PostType } from "../../../models/Post";
 
-// ApiClintのデータを取得
+/* TODO: repository層に移行 */
 export const getPosts = async (): Promise<PostType[]> => {
   const result = await ApiClient.get(`/posts`);
   return result.data;
