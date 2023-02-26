@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ApiClient } from "../../../lib/api-client";
-import { PostType } from "../../../models/Post";
+import { PostType } from "../../../models/post_model";
 
 /* TODO: repository層に移行 */
 export const getPosts = async (): Promise<PostType[]> => {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { PostType } from "../../../models/Post";
+import { PostType } from "../../../models/post_model";
 import { createPost, deletePost } from "../api/getPost";
 
 type Props = {

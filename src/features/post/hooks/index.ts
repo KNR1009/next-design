@@ -1,7 +1,7 @@
 // hooks
 import { useState } from "react";
 import { useAsync } from "react-use";
-import { PostType } from "../../../models/Post";
+import { PostType } from "../../../models/post_model";
 
 // api
 import { getPosts } from "../api/getPost";
