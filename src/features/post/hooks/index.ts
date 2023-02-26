@@ -1,7 +1,7 @@
 // hooks
 import { useState } from "react";
 import { useAsync } from "react-use";
-import { PostType } from "../../../models/post_model";
+import { postFactory, PostType } from "../../../models/post_model";
 
 // api
 import { getPosts } from "../api/getPost";
@@ -14,7 +14,7 @@ export const useFetchPosts = () => {
 
   useAsync(async () => {
     try {
-      const data = await getPosts();
+      const data = await postFactory().getAll();
       setPosts(data);
     } catch (e) {
       console.log(e);
