@@ -6,6 +6,16 @@ const headers = {
 
 export const ApiClient = axios.create({ baseURL, headers });
 
+// セッションからブリッジIDを取得
+const getBridgeId = () => {
+  return sessionStorage.getItem("bridgeId");
+};
+
+// セッションからtokenを取得
+const getToken = () => {
+  return sessionStorage.getItem("token");
+};
+
 ApiClient.interceptors.response.use(
   (response) => {
     return response;
@@ -28,9 +38,11 @@ ApiClient.interceptors.response.use(
 );
 
 ApiClient.interceptors.request.use(async (request: any) => {
+  const bridgeId = getBridgeId();
+  const token = getToken();
   if (request && request.url?.includes("posts")) {
-    request.headers["access-token"] = "sample-token123";
-    request.headers.Authorization = `Token AuthorizationToken`;
+    request.headers["access-token"] = token;
+    request.headers.Authorization = `Token bridgeId:${bridgeId}`;
   }
   return request;
 });
