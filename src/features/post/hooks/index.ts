@@ -1,11 +1,11 @@
 // hooks
 import { useState } from "react";
 import { useAsync } from "react-use";
+import { PostType } from "../../../models/Post";
 
 // api
 import { getPosts } from "../api/getPost";
 // types
-import { PostType } from "../types";
 
 /* 責務: postsのAPI通信をしデータをstateに格納しておく */
 export const useFetchPosts = () => {

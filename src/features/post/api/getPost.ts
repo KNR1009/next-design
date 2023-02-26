@@ -14,3 +14,13 @@ export const getPost = async (id: number): Promise<PostType> => {
   );
   return result.data;
 };
+
+export const createPost = async (
+  params: Omit<PostType, "id" | "created_at" | "updated_at">
+) => {
+  await ApiClient.post("/posts", params);
+};
+
+export const deletePost = async (id: number) => {
+  await ApiClient.delete(`/posts/${id}`);
+};
