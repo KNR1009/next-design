@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useAsync } from "react-use";
 import { postFactory, PostType } from "../../../models/post_model";
+import { mockPostRepository } from "../../../repositories/mock/mock_post_repository";
 
 // api
 import { getPosts } from "../api/getPost";
@@ -14,7 +15,7 @@ export const useFetchPosts = () => {
 
   useAsync(async () => {
     try {
-      const data = await postFactory().getAll();
+      const data = await postFactory(mockPostRepository).index();
       setPosts(data);
     } catch (e) {
       console.log(e);
